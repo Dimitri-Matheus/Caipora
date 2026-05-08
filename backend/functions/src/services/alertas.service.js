@@ -50,3 +50,14 @@ exports.resolver = async (alertaId, data) => {
     
     return true;
 };
+
+exports.listar = async () => {
+  const snapshot = await db.collection('historico_eventos').get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+};
+
+exports.obterPorId = async (alertaId) => {
+  const doc = await db.collection('historico_eventos').doc(alertaId).get();
+  if (!doc.exists) throw new Error('Alerta não encontrado ʕ•́ᴥ•̀ʔっ');
+  return { id: doc.id, ...doc.data() };
+};

@@ -21,3 +21,21 @@ exports.resolverAlerta = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.listarAlertas = async (req, res) => {
+  try {
+    const alertas = await alertasService.listar();
+    res.json(alertas);  // 200: OK (Padrão)
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+exports.obterAlertaPorId = async (req, res) => {
+  try {
+    const alerta = await alertasService.obterPorId(req.params.id);
+    res.json(alerta);  // 200: OK (Padrão)
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
