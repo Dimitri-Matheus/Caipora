@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=1920, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="style.css">
+    <title>Caipora</title>
+    <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="Header">
+        <div class="logo">
+            <img src="media/logo.png" class="logo"/>
+            <H3>CAIPORA</H3>
+        </div>
+        <div class="navHeader">
+            <ul>
+            <li onclick="goTo('navCore')"">Inicio</li>
+            <li onclick="goTo('sobre')">Sobre</li>
+            <li onclick="goTo('tecnologia')">Tecnologia</li>
+            <li onclick="goTo('dashboard')">Dashboard</li>
+            <li onclick="goTo('mapa')">Mapa</li>
+        </ul>
+        </div>
+    </header>
+    <div id="#dev" class="">
+
+    </div>
+    <section id="navCore" class="conteudo">
+        <div class="logoCore">
+            <img src="media/logo.png"/>
+            <h3>CAIPORA</h3>
+            <h2>INTELIGÊNCIA AMAZÔNICA</h2>
+        </div>
+        <div class="textBox">
+        <p>
+Sistema inteligente de monitoramento ambiental baseado em Edge Computing e Internet das Coisas,
+desenvolvido para detectar desmatamento, tiros e invasões na floresta em tempo real
+        </p>
+        </div>
+        <div class="navButtons">
+            <button type="button" class="switchButton">PROJETO</button>
+                <div class="divisaHorizontal"></div>
+            <button type="button" class="switchButton">DASHBOARD</button>
+        </div>
+    </section>
+    <div id="projectSection">
+        <section class="conteudo projeto" id="sobre">
+            <h3>SOBRE O CAIPORA</h3>
+            <div class="textBox">
+                <p>
+                    O CAIPORA é um sistema inteligente de monitoramento ambiental que integra IoT (Internet das Coisas) e Computação de Borda (Edge Computing) para combater crimes ambientais em tempo real. Desenvolvido como uma verdadeira “sentinela eletrônica”, o sistema identifica atividades ilegais, como desmatamento, queimadas e invasões, em áreas remotas e de difícil acesso, especialmente na Floresta Amazônica.
+                </p>
+            </div>
+            <div class="divBox">
+                <h2>Foco Estratégico</h2>
+                <h3>OBJETIVO</h3>
+                <p>Utilizando dispositivos autônomos distribuídos estrategicamente, o CAIPORA processa dados sonoros localmente por meio de Inteligência Artificial embarcada. Ao identificar ruídos suspeitos (motosserras, tiros ou motores), o sistema envia alertas imediatos via radiofrequência, eliminando a necessidade de uma conexão constante com a internet.</p>
+                <div class="divBox2">
+                    <div>
+                        <h2>Missão</h2>
+                        <p>Proteger a biodiversidade através de tecnologia de resposta rápida.</p>
+                    </div>
+                    <div>
+                        <h2>Visão</h2>
+                        <p>Ser referência em tecnologia de preservação ambiental IoT e IA.</p>
+                    </div>
+                </div>
+                <h3>VALORES</h3>
+                <div class="navButtons">
+                    <button type="button">SUSTENTABILIDADE</button>
+                    <button type="button">INOVAÇÃO</button>
+                    <button type="button">EFICIÊNCIA</button>
+                </div>
+            </div>
+            <h3>CONTEXTO E JUSTIFICAÇÃO</h3>
+            <p>Soluções tradicionais dependem de patrulhas físicas custosas ou satélites que não detetam eventos sonoros em tempo real. O CAIPORA preenche esta lacuna utilizando Edge Computing para identificar motosserras, tiros e veículos instantaneamente.</p>
+            <div class="divBox2">
+                    <div>
+                        <h2>Impacto Esperado</h2>
+                        <p>Redução drástica no tempo de resposta e preservação de milhares de hectares de floresta.</p>
+                    </div>
+                    <div>
+                        <h2>Visão</h2>
+                        <p>Sensores solares 24/7, comunicação LoRa (15km) e IA embarcada no ESP32.</p>
+                    </div>
+            </div>
+        </section>
+        <section class="conteudo projeto tecnologias" id="tecnologia">
+            <h3>TECNOLOGIAS ULTILIZADAS</h3>
+            <div>
+                <div class="divBox">
+                    <h2>Hardware & Dispositivos</h2>
+                        <div class="divBox2"><div class="divBox3"><h2>CPU</h2></div><div class="textBox">
+                            <h3>ESP32 (Microcontrolador)</h3><p>Dual-core 240MHz, 520KB SRAM, compatível com TensorFlow Lite.</p>
+                        </div></div>
+                        <div class="divBox2"><div class="divBox3"><h2>MIC</h2></div><div class="textBox">
+                            <h3>INMP441 (Digital Mic)</h3><p>Interface I2S de alta sensibilidade para captura precisa de áudio.</p>
+                        </div></div>
+                        <div class="divBox2"><div class="divBox3"><h2>RF</h2></div><div class="textBox">
+                            <h3>LoRa Communication</h3><p>Alcance de 2-15km com baixíssimo consumo (915 MHz).</p>
+                        </div></div>
+                </div>
+                <div class="divBox">
+                    <h2>Software & Inteligência</h2>
+                        <div class="divBox2 "><div class="divBox3 azul"><h2>CPU</h2></div><div class="textBox">
+                            <h3>Rede Neural Convolucional</h3><p>94% de precisão na detecção de motosserras, tiros e motores.</p>
+                        </div></div>
+                        <div class="divBox2 "><div class="divBox3 azul"><h2>MIC</h2></div><div class="textBox">
+                            <h3>EDashboard & Cloud</h3><p>Processamento de espectrogramas e FFT em tempo real (Edge).</p>
+                        </div></div>
+                        <div class="divBox2 "><div class="divBox3 azul"><h2>RF</h2></div><div class="textBox">
+                            <h3>LoRa Communication</h3><p>Interface em React para monitorização e alertas instantâneos.</p>
+                        </div></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="dashboardSection">
+        <section class="conteudo dashboard map" id="mapa">
+            <h3>MAPA DE MONITORAMENTO</h3>
+            <div class="mapmonitor">
+                <div id="map" ></div>
+                <div class="divBox">
+                    <h2>detalhes do sensor</h2>
+                    <div class="divBox2">
+                        <div id="sensor">
+                            <h2>Sensor</h2>
+                            <p>ID: ###</p>
+                        </div>
+                    </div>
+                    <div class="divBox2">
+                        <div id="status">
+                            <h2>Status</h2>
+                            <div class="statusOff">
+                                <p>Offline</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divBox2">
+                        <div id="localização">
+                            <h2>Localização</h2>
+                            <p>< localização ></p>
+                        </div>
+                    </div>
+                    <div class="divBox2">
+                        <div id="bateria">
+                            <h2>Bateria</h2>
+                            <div id="bateriaprogresso">
+                                <div id="barraDeProgresso"></div>
+                            </div>
+                            <p>##%</p>
+                        </div>
+                    </div>
+                    <div class="divBox2">
+                        <div id="precisao">
+                            <h2>Taxa de Precisão</h2>
+                            <p>##</p>
+                        </div>
+                    </div>
+                    <span>ultima atualização</span>
+                </div>
+            </div>
+        </section>
+        <section class="conteudo dashboard" id="dashboard">
+            <h3>DASHBOARD</h3>
+            <p>Visualize em tempo real a localização e status dos sensores distribuídos pela floresta amazônica</p>
+            <div class="graficos">
+
+                <div class="divBox azul" id="sensoresDb">
+                    <h3>Sensores</h3>
+                    <div class="textBox">
+                        <h3 class="dashboard" >00</h3><p>Ativos Hoje</p>
+                    </div>
+                </div>
+                <div class="divBox azul" id="alertasDb">
+                    <h3>Alertas</h3>
+                    <div class="textBox">
+                        <h3 class="dashboard">00</h3><p>Alertas Hoje</p>
+                    </div>
+                </div>
+                <div class="divBox azul" id="atividadeDb">
+                    <h3>Ultima atividade</h3>
+                    <div class="textBox">
+                        <h3 class="dashboard">00</h3><p>Minutos Atrás</p>
+                    </div>
+                </div>
+
+                <div class="historico">
+                    <h3>HISTÓRICO</h3>
+                    <div id="historico">
+                    </div>
+                </div>
+                <div class="graficoPizza">
+                    <div id="graficoPizza">
+                        <!-- creditos para @beatrizmerino -->
+                        <div class="c-graphic__delivery c-graphic__circle--donut">
+                            <div class="c-graphic__circle--donut__inner">
+                                <div class="c-graphic__circle--donut__inner__pie"></div>
+                                <ul class="c-graphic__circle--donut__inner__legend">
+                                <li><em>Indentificado</em><span>50</span></li>
+                                <li><em>Indentificado</em><span>2</span></li>
+                                <li><em>Identificado</em><span>100</span></li>
+                                <li><em>Outros</em><span>50</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="graficoLinhas">
+                    <div id="graficoLinhas" style="width: 100%; height: 100%;">
+                        <div id="chartContainer" style="height: 100%; width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="logo">
+            <img alt="">
+            <h3>CAIPORA</h3>
+        </div>
+        <div class="textBox">
+            <h2>Compromisso Digital</h2>
+            <p>O CAIPORA respeita a proteção de dados dos usuários. As informações coletadas são utilizadas exclusivamente para monitoramento ambiental, segurança e preservação da Amazônia, com transparência, ética e responsabilidade digital.</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script> 
+    <script src="scripts/map.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/pizza.js"></script>
+    <script src="scripts/linhas.js"></script>
+    <script src="scripts/dashboard.js"></script>
+</body>
+</html>
