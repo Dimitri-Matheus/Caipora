@@ -3,8 +3,8 @@ const dashboard = document.querySelectorAll('#dashboardSection');
 const buttons = document.querySelectorAll(".switchButton");
 const history = document.getElementById('history');
 showcontent(0);
-
-goTo('dashboard');
+//Apenas para testes
+// goTo('dashboard');
 
 buttons.forEach((el, index) => {
   el.addEventListener('click', (e) => {
