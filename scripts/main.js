@@ -57,3 +57,18 @@ function createH(a,b){
 // createH('informações',"< sensor_id >");
 // createH('informações',"< sensor_id >");
 // lembrar me de melhorar a organização dos historicos de alertas --riki
+
+
+const API_BASE_URL = "https://api-cvehu2aruq-uc.a.run.app/api/";
+
+// Função utilitária para buscar dados da API
+async function fetchData(endpoint) {
+    try {
+        const response = await fetch(`${API_BASE_URL}${endpoint}`);
+        if (!response.ok) throw new Error(`Erro na requisição: ${response.status}`);
+        return await response.json();
+    } catch (error) {
+        console.error("Erro ao buscar dados:", error);
+        return null;
+    }
+}

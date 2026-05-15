@@ -1019,3 +1019,36 @@ footer .logo{
     transform: rotate(0deg) translate3d(0, 0, 0);
   }
 }
+
+
+/* Estilo para o botão de resolver no histórico */
+.alertahistorico {
+    display: flex;
+    flex-direction: row !important; /* Força o alinhamento horizontal */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-resolver {
+    background-color: #6a1b9a; /* Roxo para combinar com o tema */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.btn-resolver:hover {
+    background-color: #4a148c;
+}
+
+.status-resolvido {
+    color: #4CAF50; /* Verde para resolvido */
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+}
