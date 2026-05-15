@@ -1,3 +1,4 @@
+// scripts/pizza.js
 
 function sliceSize(dataNum, dataTotal) {
   return (dataNum / dataTotal) * 360;
@@ -31,59 +32,61 @@ function iterateSlices(id, sliceSize, pieElement, offset, dataCount, sliceCount,
   }
 }
 
-function createPie(id) {
-  var
-    listData      = [],
-    listTotal     = 0,
-    offset        = 0,
-    i             = 0,
-    pieElement    = id + " .c-graphic__circle--donut__inner__pie",
-    dataElement   = id + " .c-graphic__circle--donut__inner__legend",
+// NOVA FUNÇÃO: Agora recebe os alertas reais do backend
+function atualizarGraficoPizza(alertas) {
+  var id = '.c-graphic__delivery';
+  var pieElement  = id + " .c-graphic__circle--donut__inner__pie";
+  var dataElement = id + " .c-graphic__circle--donut__inner__legend";
 
-    color         = [
-      "gray",
-      "purple",
-      "green",
-      "cyan",
-      "crimson",
-      "purple",
-      "turquoise",
-      "forestgreen",
-      "navy"
-    ];
+  // 1. LIMPEZA CRUCIAL: Remove as fatias antigas para o polling não encavalar elementos HTML
+  $(pieElement).empty();
 
-//   color = shuffle( color );
-
-  $(dataElement+" span").each(function() {
-    listData.push(Number($(this).html()));
+  // 2. AGRUPAMENTO: Conta quantos alertas existem de cada tipo de som
+  var contagemSons = {};
+  alertas.forEach(function(alerta) {
+    var tipo = alerta.tipo_som || "RUÍDO";
+    contagemSons[tipo] = (contagemSons[tipo] || 0) + 1;
   });
 
-  for(i = 0; i < listData.length; i++) {
+  var listLabels = Object.keys(contagemSons);
+  var listData   = Object.values(contagemSons);
+  var listTotal  = 0;
+  var offset     = 0;
+
+  var color = [
+    "#6a1b9a", // Roxo principal
+    "#00b0ff", // Ciano
+    "#00e676", // Verde
+    "#ff3d00", // Crimson / Laranja
+    "#ff007f", // Rosa
+    "turquoise",
+    "forestgreen",
+    "navy"
+  ];
+
+  // Calcular o total geral de incidentes
+  for(var i = 0; i < listData.length; i++) {
     listTotal += listData[i];
   }
 
-  for(i=0; i < listData.length; i++) {
+  // 3. ATUALIZAR LEGENDA: Recria a lista HTML com os nomes e valores reais
+  var legendContainer = $(dataElement);
+  legendContainer.empty(); // Limpa a legenda antiga estática
+
+  listLabels.forEach(function(label, index) {
+    var corAtual = color[index % color.length];
+    legendContainer.append(
+      "<li style='border-color: " + corAtual + "'>" + label + ": <span>" + contagemSons[label] + "</span></li>"
+    );
+  });
+
+  // 4. RENDERIZAR FATIAS: Desenha o gráfico com os ângulos corretos
+  for(var i=0; i < listData.length; i++) {
     var size = sliceSize(listData[i], listTotal);
-    iterateSlices(id, size, pieElement, offset, i, 0, color[i]);
-    $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
+    iterateSlices(id, size, pieElement, offset, i, 0, color[i % color.length]);
     offset += size;
   }
 }
 
-function shuffle(a) {
-    var j, x, i;
-    for (i = a.length; i; i--) {
-        j = Math.floor(Math.random() * i);
-        x = a[i - 1];
-        a[i - 1] = a[j];
-        a[j] = x;
-    }
-
-    return a;
-}
-
-function createPieCharts() {
-  createPie('.c-graphic__delivery' );
-}
-
-createPieCharts();
+// Expõe a função globalmente para que o dashboard.js consiga chamá-la
+window.atualizarGraficoPizza = atualizarGraficoPizza;

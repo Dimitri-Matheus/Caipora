@@ -59,7 +59,7 @@ function createH(a,b){
 // lembrar me de melhorar a organização dos historicos de alertas --riki
 
 
-const API_BASE_URL = "https://api-cvehu2aruq-uc.a.run.app/api/";
+const API_BASE_URL = "https://api-cvehu2aruq-uc.a.run.app";
 
 // Função utilitária para buscar dados da API
 async function fetchData(endpoint) {

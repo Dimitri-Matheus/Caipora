@@ -11,6 +11,6 @@ app.use(express.json());  // Permite que a nossa API receba e entenda dados no f
 
 // Injeção de Rotas
 // Toda requisição que chegar com '/alertas' será gerenciada pelo arquivo alertasRoutes
-app.use('/api/alertas', alertasRoutes);
+app.use('/alertas', alertasRoutes);
 
 module.exports = app;
