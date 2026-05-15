@@ -4,7 +4,7 @@ const buttons = document.querySelectorAll(".switchButton");
 const history = document.getElementById('history');
 showcontent(0);
 
-goTo('dashboard');
+// goTo('dashboard');
 
 buttons.forEach((el, index) => {
   el.addEventListener('click', (e) => {
