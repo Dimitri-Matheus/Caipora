@@ -3,7 +3,7 @@ const dashboard = document.querySelectorAll('#dashboardSection');
 const buttons = document.querySelectorAll(".switchButton");
 const history = document.getElementById('history');
 showcontent(0);
-
+//Apenas para testes
 // goTo('dashboard');
 
 buttons.forEach((el, index) => {
