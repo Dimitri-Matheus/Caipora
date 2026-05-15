@@ -24,6 +24,13 @@
     --background5:beige;
     --shadow:0px 4px 4px 0px rgba(0, 0, 0, 0.3);
 }
+
+html {
+    scroll-padding-top: 30px; /* Ajuste este número para a altura exata do seu menu de navegação */
+    
+    /* BÔNUS DE UX: Deixa a rolagem suave em vez de dar aquele pulo seco! */
+    scroll-behavior: smooth; 
+}
 /* Fontes */
 
 /* Inter  e Poppins*/
@@ -71,7 +78,7 @@
 body{
     color: var(--texto3);
     font-family: "Inter",sans-serif;
-    background-color: whitesmoke;
+    background-color: white;
 }
 header{
     width: 100vw;
@@ -120,9 +127,9 @@ div.logo{
 
 }
 #dashboard{
-    background-color: var(--background5);
+    background-color: white;
     .divBox,.graficos .graficoLinhas,.graficos .graficoPizza,.historico{
-        box-shadow: 0 0 5px rgba(0, 0, 0,0.5);
+        box-shadow: none !important;
     }
 }
 /* ================== */
@@ -199,8 +206,9 @@ div.divisaHorizontal{
     box-shadow: var(--shadow);
     border-width: 0px;
     border-radius: 30px;
-    font-size: 24px;
+    font-size: 20px;
     background-color: white;
+    font-weight: 500;
 }
 .switchButton:hover:not(.selected){
     background-color: var(--background2);
@@ -225,10 +233,12 @@ p{
     font-family: "Inter",sans-serif;
     font-weight: 500;
     font-style: Medium;
-    font-size: 24px;
+    font-size: 23px;
     line-height: 100%;
     letter-spacing: 5%;
     text-align: justify;
+    
+    
 }
 .textBox{
     color: var(--texto1);
@@ -245,20 +255,26 @@ p{
 .conteudo h3{
     font-size: 36px;
     margin-bottom: 12px;
+    font-weight: 500;
 }
 section.projeto{
     min-height: auto;
     display: flex;
     flex-direction: column;
     text-justify: center;
-    background-color: var(--background5);
+    background-color: var(--background); /*----------------*/
 }
-section.projeto p{
-    margin-inline-start: 30px;
-    margin-inline-end: 30px;
-    text-indent: 20px;
-    margin-bottom: 12px;
+
+
+/* Esta regra afeta SOMENTE o texto solto de Contexto e Justificação */
+section.projeto > p {
+    padding-bottom: 35px; /* (Ou o valor de padding/margin que você gostou) */
+    
+    /* Pode colocar os alinhamentos aqui também, se precisar: */
+    margin-left: 0;
+    text-indent: 0;
 }
+
 div.divBox{
     display: flex;
     flex-direction: column;
@@ -269,13 +285,16 @@ div.divBox{
     box-shadow: var(--shadow);
     border-radius: 30px;
     padding: 30px;
-    margin:  50px auto;
+    margin: 30px auto;
     background-color: white;
 }
-div.divBox h3{
+div.divBox h3{  
+    font-weight: 600;
     font-size: 24px;
-    font-style: medium;
-    font-weight: 500;
+    line-height: 39px;
+    color: var(--texto);
+    margin-bottom: 0px;
+    
 }
 div.divBox .navButtons{
     width: 75%;
@@ -283,6 +302,7 @@ div.divBox .navButtons{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    
 }
 div.divBox2{
     width: 100%;
@@ -290,7 +310,8 @@ div.divBox2{
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center; 
+    gap: 40px;
 }
 .divBox2 div:not(.textBox){
     display: flex;
@@ -333,7 +354,13 @@ background-color: var(--background) !important;
 
     .divBox{
         max-width: 610px;
-        height: 566px;
+        height: auto; 
+        padding-bottom: 0px;
+    }
+    
+    p {
+    text-align: left; 
+    margin-bottom: 10px; 
     }
 
     .divBox3 h2{
@@ -344,15 +371,18 @@ background-color: var(--background) !important;
     }
     .divBox2 .textBox h3{
         font-weight: 600;
-        margin-inline-start: 25px;
+        
     }
     .divBox2 .textBox p,.divBox2 .textBox h3{
-        font-size: 20px;
+        font-size: 22px;
+        margin-inline-start: 0px;
     }
 }
 .tecnologias > div{
     display: flex;
     flex-direction: row;
+    justify-content: center; /* Mantém os dois blocos centrados na página */
+    gap: 40px;
 }
 .azul h2{
     color: var(--texto4);
@@ -360,20 +390,28 @@ background-color: var(--background) !important;
 .azul > .divBox2 div.divBox3{
     background-color: var(--background3);
 }
+
 /* mapa */
 #mapa{
-    background-color: #000000;
-    background-image: url(media/backgroundLeaf.svg);
+    background-color: white;
+    /*background-image: url(media/backgroundLeaf.svg);*/
     background-size: 50px;
     background-repeat: repeat;
     background-position-x: -15px;
     background-position-y: -30px;
     h3{
-        color: white;
-        font-weight: 1000;
-        text-shadow: 0px 0px 6px black;
-        font-size: 50px;
-
+        color: black;
+        font-weight: 100;
+        /*text-shadow: 0px 0px 6px black;*/
+        font-size: 34px;
+    }
+    p { 
+        margin-left: 0 !important;   /* Garante o alinhamento na esquerda */
+        text-indent: 0 !important;   /* Remove o recuo de "início de parágrafo" */
+        padding-left: 0 !important;
+        
+        margin-bottom: 25px;    
+        text-align: left;
     }
 }
 #map{
@@ -406,7 +444,7 @@ background-color: var(--background) !important;
     margin: 0 0;
     h2{
         text-transform: uppercase;
-        font-size: 30px;
+        font-size: 24px;
     }
 }
 
@@ -427,76 +465,116 @@ background-color: var(--background) !important;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-style: oblique;
-    font-size: 20px;
+    font-size:17px;
 }
-#sensor,#status,#localização,#precisao,#bateria{
+#sensor, #status, #localização, #precisao {
     min-height: 0;
     height: 80px;
     display: flex;
-    border-radius: 0;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: right;
     position: relative;
-    h2{
-        justify-self: start;
-        align-self: start;
-        font-size: 20px;
-        margin: 0 !important;
-    }
-    p{
-        align-self: end;
-        font-size: 20px;
-    }
+
+    border-radius: 15px;
+    padding: 0 15px; /* Dá 15px de espaço nas laterais para o texto não colar na curva */
+    flex-direction: row; /* Coloca o H2 e o P na mesma linha */
+    justify-content: space-between; /* Empurra o H2 tudo pra esquerda e o P tudo pra direita */
+    align-items: center; /* Centraliza eles na altura para ficarem retinhos */
 }
-#bateriaprogresso{
-    background-color: black;
-    max-height: none;
-    min-height: 0;
-    max-width: none;
-    min-width: 0;
-    width: 55%;
-    height: 10px;
-    padding: 0;
-    margin: 0;
-    display: block;
-    position: absolute;
-    right: 10px;
-    box-shadow: none;
-    div{
-        box-shadow: none;
-        z-index: 1;
-        background-color: rgb(0, 255, 34);
-        max-height: none;
-        min-height: 0;
-        max-width: none;
-        min-width: 0;
-        width: 100%;
-        height: 10px;
-        padding: 0;
-        margin: 0;
-        display: block;
-        position: absolute;
-        left: 0;
-    }
+
+#localização {
+    flex-direction: column; /* Muda de linha para coluna */
+    align-items: flex-start; /* Alinha o título e o resultado à esquerda */
+    justify-content: center;
+    height: 100px; /* Aumentamos um pouco a altura para caber as duas linhas com folga */
+    gap: 8px; /* Cria um espaço fixo entre o título e o valor */
 }
-div#status div{
+
+/* Ajuste específico para o texto das coordenadas */
+#localização p {
+    align-self: flex-start; /* Garante que o texto longo comece na esquerda */
+    font-size: 15px; /* Diminuímos um pouco para não quebrar a linha se for muito longo */
+    color: var(--texto);
+    margin-left: 5px;
+}
+
+/* Regras para os títulos (H2) dentro dos cards */
+#sensor h2, #status h2, #localização h2, #precisao h2 {
+    font-size: 20px;
+    margin: 0 !important;
+}
+
+/* Regras para os textos/resultados (P) dentro dos cards */
+#sensor p, #status p, #localização p, #precisao p {
+    font-size: 20px;
+    margin: 0; /* Remove as margens antigas que estavam bagunçando */
+}
+/* --- ESTILOS INDIVIDUAIS DOS CARDS DO MAPA --- */
+
+/* 1. Estilo individual do ID do Sensor */
+#sensor {
+    /* Exemplo: Se precisar de um fundo diferente ou margem */
+    background-color: var(--background2); 
+}
+#sensor h2 {
+    color: var(--texto2); /* Muda a cor do título "ID do Sensor" */
+}
+#sensor p {
+    font-size: 20px; /* Tamanho de texto diferente só para o ID */
+    color: var(--texto3);
+}
+
+/* 2. Estilo individual da Localização */
+#localização {
+    background-color: var(--background2);
+}
+#localização h2 {
+    color: var(--texto2);
+}
+#localização p {
+    font-size: 16px; /* Fonte menor para caber as coordenadas */
+    font-family: monospace; /* Fonte estilo código para números */
+    color: var(--texto);
+}
+
+/* 3. Estilo individual da Precisão */
+#precisao {
+    background-color: var(--background2);
+}
+#precisao h2 {
+    color: var(--texto2);
+}
+#precisao p {
+    font-size: 15px;
+    color: var(--texto3); /* Exemplo: Destacar a porcentagem com cor diferente */
+    margin-right: 40px;
+}
+
+
+div#status div {
     min-height: unset;
-    margin: -18px 0 0 0;
-    padding: 10px;
-    width: 150px;
-    height: 200px;
+    margin: 0; /* Remove a margem negativa que puxava para cima */
+    height: 40px; /* Reduz a altura (antes era 200px!) para caber na linha */
+    background-color: var(--background2);
+    width: auto; /* Deixa a largura se ajustar à palavra */
+    min-width: 100px; /* Garante um tamanho mínimo para não ficar espremido */
+    padding: 0 15px; /* Espaço nas laterais da palavra */
     box-shadow: none;
-    border-radius: 25px;
-    display: inline-block;
-    p{
-        text-align: center;
-    }
+    border-radius: 100px;
+    
+    /* Centraliza o texto perfeitamente dentro da "pílula" de status */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+div#status div p {
+    margin: 0;
+    text-align: center;
+    font-size: 18px; /* Ajuste o tamanho da letra se precisar */
 }
 .statusOn{
-    background-color: rgb(161, 255, 161) !important;
+    background-color: var(--background4) !important;
  P{
-    color: #008132 !important;
+    color: rgb(14, 48, 1) !important;
  }
 }
 .statusOff{
@@ -512,12 +590,14 @@ P{
 }
 }
 /* graficos */
+/* graficos */
 .graficos{
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column: 3 / 3 / span 2 ;
-    gap: 15px;
-    margin: 80px auto;
+    gap: 25px;
+    margin: 30px auto;
+
     .azul{
         min-height: 0;
         height: 200px;
@@ -525,35 +605,57 @@ P{
         box-sizing: border-box;
         margin: 0;
         text-transform: uppercase;
+        
         h3{
-            font-size: 40px;
+            font-size: 35px;    /*titulos dos cards de alertas*/
+            background-color: transparent !important;
+            color: black !important;
+            font-weight: 100;
+            
         }
+        
         .dashboard{
-            font-size: 70px;
-            margin-bottom: -12px;
+            font-weight: 600;
+            font-size: 50px;
+            margin: 0;
+            color: black !important;
             background-color: transparent !important;
         }
+        
         .textBox{
-            width: 60%;
+            width: auto; /* Alterado de 60% para auto para os textos caberem na linha */
             display: flex;
-            justify-content: left;
-            align-items: end;
-            padding: 0 10%;
+            flex-direction: row; /* Força a ficar na mesma linha */
+            justify-content: flex-start; /* Alinha à esquerda */
+            align-items: baseline; /* A MÁGICA: Alinha o texto menor pela base do número gigante */
+            gap: 12px; /* Adiciona o espaço entre o número e o texto */
+            padding: 0;
+            
+            /* REGRA NOVA: Tirando as margens do parágrafo que estava empurrando o layout */
+            p {
+                margin: 0;
+                font-size: 16px; /* Ajuste o tamanho da palavra aqui */
+                color: black !important;
+            }
         }
     }
+    
     #sensoresDb{
-            
-            grid-area: 1/1;
-        }
-    #AlertasDb{
-            
-            grid-area: 1/2;
-        }
-    #AtividadeDb{
-            
-            grid-area: 1/3;
-        }
-
+        grid-area: 1/1;
+        background-color: #E1DFFF !important; /* COR DO CARD DE SENSORES (Ex: Verde) */
+    }
+    
+    /* CORRIGIDO PARA MINÚSCULO IGUAL AO HTML */
+    #alertasDb{
+        grid-area: 1/2;
+        background-color: #E6F1FD !important; /* COR DO CARD DE ALERTAS (Ex: Vermelho) */
+    }
+    
+    /* CORRIGIDO PARA MINÚSCULO IGUAL AO HTML */
+    #atividadeDb{
+        grid-area: 1/3;
+        background-color: var(--background2) !important; /* COR DO CARD DE ATIVIDADE (Ex: Roxo) */
+    }
 }
 .historico{
     width: 100%;
@@ -570,7 +672,7 @@ P{
     border-bottom: 1px solid;
     border-color: var(--linhas);
     text-align: center;
-    color: var(--texto2);
+    color: black;
     font-family: 'Poppins',sans-serif;
     font-weight: 500;
 }
@@ -609,23 +711,37 @@ P{
 .graficoPizza{
     width: 100%;
     height: 400px;
-    background: var(--background2);
+    background: #E6F1FD;
     border-radius: 20px;
     box-shadow: var(--shadow);
     padding: 30px;
     box-sizing: border-box;
     grid-area: 2 / 3 / 2 / 3;
 }
+
+/* 1. Organiza o card para o título ficar em cima e o gráfico embaixo */
+.graficoPizza {
+    display: flex;
+    flex-direction: column;
+}
+
+.graficoPizza h3 {
+    margin: 0 0 30px 0; /* Dá um espaço entre o título e o gráfico */
+    text-align: left;
+    font-size: 35px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
 .graficoLinhas{
     width: 100%;
     height: 500px;
-    background-color: var(--background1);
+    background-color: var(--background2);
     grid-area: 3 / 1 / span 3 / span 3;
     border-radius: 20px;
     box-shadow: var(--shadow);
     padding: 30px;
     box-sizing: border-box;
-    background-color: var(--background);
     a{
         display: none;
     }
@@ -709,7 +825,7 @@ footer .logo{
 }
 .selected{
     background-color: var(--texto2) !important;
-    color: var(--background4) ;
+    color: var(--background) ;
     /* box-shadow: inset 0px 10px 4px rgba(0, 0, 0, 0.9) !important; */
     transform: translateY(2px);
     transition: all .2s ease-in-out;
@@ -724,29 +840,30 @@ footer .logo{
     background-color: var(--background4) !important;
 }
 
-/* grafico de pizza, creditos para: @beatrizmerino */
+/* grafico de pizza, creditos para: @beatrizmerino - ADAPTADO PARA O CAIPORA */
 
 .c-graphic__circle--donut {
   font-family: "Open Sans", Arial;
 }
 
 .c-graphic__circle--donut__inner {
-  width: 80%;
-  margin: 0px auto;
-  text-align: center;
-}
-
-.c-graphic__circle--donut__inner__pie,
-.c-graphic__circle--donut__inner__legend {
-  display: inline-block;
-  vertical-align: top;
+  width: 100%;
+  margin: 0 auto;
+  
+  /* NOVO LAYOUT LADO A LADO APLICADO DIRETO NA RAIZ */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  height: 100%;
 }
 
 .c-graphic__circle--donut__inner__pie {
   position: relative;
   height: 200px;
   width: 200px;
-  margin: 10px auto 35px;
+  margin: 0; /* Removido o margin que quebrava o layout */
   
   &::before {
     content: "";
@@ -755,21 +872,91 @@ footer .logo{
     z-index: 1;
     width: 100px;
     height: 100px;
-    background: #EEE;
+    background: var(--background2); /* Usando sua variável de fundo para o miolo ficar transparente! */
     border-radius: 50%;
     top: 50px;
     left: 50px;
   }
+  
   &::after {
     content: "";
     display: block;
+    
+    /* SOMBRA CORRIGIDA DIRETAMENTE NA ORIGEM */
+    position: absolute;
+    bottom: -20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    
     width: 120px;
     height: 2px;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     -webkit-box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.1);
-    margin: 220px auto;
+  }
+}
+
+.slice {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  clip: rect(0px, 200px, 200px, 100px);
+  -webkit-animation: bake-pie 1s;
+  animation: bake-pie 1s;
+  span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    clip: rect(0px, 200px, 200px, 100px);
+  }
+}
+
+.c-graphic__circle--donut__inner__legend {
+  /* SCROLL E ORGANIZAÇÃO DA LEGENDA UNIFICADOS */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 200px; 
+  overflow-y: auto;  
+  padding: 0 15px 0 0;
+  
+  list-style-type: none;
+  margin: 0;
+  font-size: 13px;
+  text-align: left;
+  width: auto;
+  min-width: 40%; /* Garante espaço para o texto e os números */
+  
+  li {
+    height: 1.25em;
+    margin-bottom: 0;
+    padding-left: 0.5em;
+    border-left: 1.25em solid black;
+  }
+  em {
+    font-style: normal;
+  }
+  span {
+    float: right;
+    margin-left: 15px; /* Afasta os números da palavra */
+  }
+
+  /* ESTILIZAÇÃO DO SCROLL NATIVA NO BLOCO */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #d1d1d1;
+    border-radius: 10px;
   }
 }
 

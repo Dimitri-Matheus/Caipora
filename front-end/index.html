@@ -120,48 +120,44 @@ desenvolvido para detectar desmatamento, tiros e invasões na floresta em tempo 
     <div id="dashboardSection">
         <section class="conteudo dashboard map" id="mapa">
             <h3>MAPA DE MONITORAMENTO</h3>
-            <div class="mapmonitor">
-                <div id="map" ></div>
-                <div class="divBox">
-                    <h2>detalhes do sensor</h2>
-                    <div class="divBox2">
-                        <div id="sensor">
-                            <h2>Sensor</h2>
-                            <p>ID: ###</p>
-                        </div>
-                    </div>
-                    <div class="divBox2">
-                        <div id="status">
-                            <h2>Status</h2>
-                            <div class="statusOff">
-                                <p>Offline</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="divBox2">
-                        <div id="localização">
-                            <h2>Localização</h2>
-                            <p>< localização ></p>
-                        </div>
-                    </div>
-                    <div class="divBox2">
-                        <div id="bateria">
-                            <h2>Bateria</h2>
-                            <div id="bateriaprogresso">
-                                <div id="barraDeProgresso"></div>
-                            </div>
-                            <p>##%</p>
-                        </div>
-                    </div>
-                    <div class="divBox2">
-                        <div id="precisao">
-                            <h2>Taxa de Precisão</h2>
-                            <p>##</p>
-                        </div>
-                    </div>
-                    <span>ultima atualização</span>
+            <p>Monitoramento em tempo real do sistema CAIPORA</p>
+<div class="mapmonitor">
+    <div id="map"></div>
+    <div class="divBox">
+        <h2>Detalhes do sensor</h2>
+        
+        <div class="divBox2">
+            <div id="sensor">
+                <h2>Sensor:</h2>
+                <p><span id="valor-sensor-id">"EX-999"</span></p>
+            </div>
+        </div>
+        
+        <div class="divBox2">
+            <div id="status">
+                <h2>Status:</h2>
+                <div id="box-status-sensor" class="statusOff">
+                    <p id="texto-status-sensor">Offline</p>
                 </div>
             </div>
+        </div>
+        
+        <div class="divBox2">
+            <div id="localização">
+                <h2>Localização:</h2>
+                <p id="valor-localizacao">999999999</p>
+            </div>
+        </div>
+        <div class="divBox2">
+            <div id="precisao">
+                <h2>Precisão:</h2>
+                <p><span id="valor-precisao">??</span>%</p>
+            </div>
+        </div>
+        
+        <span>Última atualização: <span id="valor-ultima-atualizacao">--:--</span></span>
+    </div>
+</div>
         </section>
         <section class="conteudo dashboard" id="dashboard">
             <h3>DASHBOARD</h3>
@@ -169,46 +165,54 @@ desenvolvido para detectar desmatamento, tiros e invasões na floresta em tempo 
             <div class="graficos">
 
                 <div class="divBox azul" id="sensoresDb">
-                    <h3>Sensores</h3>
-                    <div class="textBox">
-                        <h3 class="dashboard" >00</h3><p>Ativos Hoje</p>
-                    </div>
+                <h3>Sensores</h3>
+                <div class="textBox">
+                    <h3 class="dashboard" id="db-valor-sensores">00</h3>
+                    <p>Ativos Hoje</p>
                 </div>
-                <div class="divBox azul" id="alertasDb">
-                    <h3>Alertas</h3>
-                    <div class="textBox">
-                        <h3 class="dashboard">00</h3><p>Alertas Hoje</p>
-                    </div>
+            </div>
+
+            <div class="divBox azul" id="alertasDb">
+                <h3>Alertas</h3>
+                <div class="textBox">
+                    <h3 class="dashboard" id="db-valor-alertas">00</h3>
+                    <p>Alertas Hoje</p>
                 </div>
-                <div class="divBox azul" id="atividadeDb">
-                    <h3>Ultima atividade</h3>
-                    <div class="textBox">
-                        <h3 class="dashboard">00</h3><p>Minutos Atrás</p>
-                    </div>
+            </div>
+
+            <div class="divBox azul" id="atividadeDb">
+                <h3>Ultima atividade</h3>
+                <div class="textBox">
+                    <h3 class="dashboard" id="db-valor-atividade">00</h3>
+                    <p id="db-label-atividade">Minutos Atrás</p>
                 </div>
+            </div>
 
                 <div class="historico">
-                    <h3>HISTÓRICO</h3>
-                    <div id="historico">
-                    </div>
+                <h3>HISTÓRICO</h3>
+                <div id="db-historico-log">
+                    <p style="text-align: center; color: var(--texto2); margin-top: 20px;">
+                        Aguardando novas detecções...
+                    </p>
                 </div>
+            </div>
                 <div class="graficoPizza">
-                    <div id="graficoPizza">
-                        <!-- creditos para @beatrizmerino -->
-                        <div class="c-graphic__delivery c-graphic__circle--donut">
-                            <div class="c-graphic__circle--donut__inner">
-                                <div class="c-graphic__circle--donut__inner__pie"></div>
-                                <ul class="c-graphic__circle--donut__inner__legend">
-                                <li><em>Indentificado</em><span>50</span></li>
-                                <li><em>Indentificado</em><span>2</span></li>
-                                <li><em>Identificado</em><span>100</span></li>
-                                <li><em>Outros</em><span>50</span></li>
+                <h3>Distribuição por Tipo</h3>
+                <div id="graficoPizza" style="height: 100%;">
+                    <div class="c-graphic__delivery c-graphic__circle--donut">
+                        <div class="c-graphic__circle--donut__inner">
+                            
+                            <div id="db-donut-pie" class="c-graphic__circle--donut__inner__pie">
+                                </div>
+                            
+                            <ul id="db-donut-legend" class="c-graphic__circle--donut__inner__legend">
                                 </ul>
-                            </div>
+
                         </div>
                     </div>
                 </div>
-                <div class="graficoLinhas">
+            </div>
+                <div class="graficoLinhas">   
                     <div id="graficoLinhas" style="width: 100%; height: 100%;">
                         <div id="chartContainer" style="height: 100%; width: 100%;"></div>
                     </div>
