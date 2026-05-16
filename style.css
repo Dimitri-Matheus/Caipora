@@ -768,6 +768,39 @@ P{
         display: none;
     }
 }
+/* Container principal do gráfico de linhas */
+.graficoLinhas {
+    background: var(--background2);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Garante que preencha o espaço do grid, caso exista */
+}
+
+/* Título do gráfico (mesmo padrão visual do histórico) */
+.graficoLinhas h3 {
+    width: 100%;
+    border-bottom: 1px solid var(--linhas);
+    text-align: center;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin: 0 0 20px 0; /* O '20px' empurra o gráfico para baixo */
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Container interno que segura o CanvasJS/ChartJS */
+#graficoLinhasContainer {
+    position: relative;
+    flex-grow: 1; /* Ocupa todo o espaço restante abaixo do título */
+    min-height: 250px;
+    width: 100%;
+}
+
 .canvasjs-chart-canvas{
     mix-blend-mode: darken;
 }

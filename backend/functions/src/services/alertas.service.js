@@ -61,3 +61,37 @@ exports.obterPorId = async (alertaId) => {
   if (!doc.exists) throw new Error('Alerta não encontrado ʕ•́ᴥ•̀ʔっ');
   return { id: doc.id, ...doc.data() };
 };
+
+exports.obterDadosAnalytics = async () => {
+    // 1. Busca todos os alertas (substitua 'alertas' pelo nome exato da sua coleção se for diferente, ex: 'historico_eventos')
+    const snapshot = await db.collection('historico_eventos').get(); 
+    const alertas = snapshot.docs.map(doc => doc.data());
+
+    const contagemPorDia = {};
+
+    // 2. Agrupa os alertas pela data (DD/MM)
+    alertas.forEach(alerta => {
+        if (!alerta.timestamp) return;
+
+        // Converte o timestamp do Firebase para objeto Date
+        const data = new Date(alerta.timestamp._seconds * 1000);
+        
+        // Formata para "DD/MM" para ficar elegante no eixo X do gráfico
+        const dia = data.getDate().toString().padStart(2, '0');
+        const mes = (data.getMonth() + 1).toString().padStart(2, '0');
+        const diaMes = `${dia}/${mes}`;
+
+        // Soma +1 no dia correspondente
+        contagemPorDia[diaMes] = (contagemPorDia[diaMes] || 0) + 1;
+    });
+
+    // 3. Transforma o objeto num array estruturado
+    const resultado = Object.keys(contagemPorDia).map(data => ({
+        data: data,
+        total: contagemPorDia[data]
+    }));
+
+    // Retorna algo como: [ { data: '14/05', total: 3 }, { data: '15/05', total: 8 } ]
+    return resultado;
+};
+

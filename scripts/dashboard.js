@@ -62,6 +62,15 @@ async function atualizarDashboard() {
     if (typeof window.atualizarGraficoPizza === "function") {
         window.atualizarGraficoPizza(alertas);
     }
+
+    if (typeof window.atualizarGraficoLinha === "function") {
+        window.atualizarGraficoLinha();
+    }
+
+    if (typeof window.atualizarMapa === "function") {
+        window.atualizarMapa(alertas);
+    }
+
 }
 
 // Função para desenhar a lista de alertas no ecrã

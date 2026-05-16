@@ -5,14 +5,17 @@ const {
   listarAlertas,
   obterAlertaPorId,
   criarAlerta,
-  resolverAlerta
+  resolverAlerta,
+  obterAnalytics
 } = require('../controllers/alertas.controller');
 
 // Rota acionada pelo hardware (ESP32) para registrar um novo evento de som
 router.post('/', criarAlerta);
 
-// Rota acionada pelo site (Front-end) quando o operador toma uma ação.
-// Utilizamos PATCH pois é uma atualização parcial (apenas mudando o status para resolvido).
+//Retorna o total de alertas agrupados por dia (DD/MM) para alimentar o gráfico de linha histórico.
+router.get('/analytics/historico', obterAnalytics);
+
+// Rota para alterar o status de um alerta para 'resolvido'
 router.put('/:id/resolver', resolverAlerta);
 
 // Rota para listar todos os alertas

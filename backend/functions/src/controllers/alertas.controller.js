@@ -39,3 +39,18 @@ exports.obterAlertaPorId = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+// Adicione no alertas.controller.js
+
+exports.obterAnalytics = async (req, res) => {
+    try {
+        // Chama a função que acabamos de criar no service
+        const dados = await alertasService.obterDadosAnalytics();
+        res.status(200).json(dados);
+    } catch (error) {
+        console.error("Erro ao gerar analytics:", error);
+        res.status(500).json({ erro: "Falha ao processar dados para o gráfico" });
+    }
+};
+
+// Não esqueça de adicionar obterAnalytics no module.exports do controller!
