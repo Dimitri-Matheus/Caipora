@@ -52,7 +52,7 @@ exports.resolver = async (alertaId, data) => {
 };
 
 exports.listar = async () => {
-  const snapshot = await db.collection('historico_eventos').get();
+  const snapshot = await db.collection('historico_eventos').orderBy('timestamp', 'desc').limit(5).get();
   return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
@@ -64,7 +64,7 @@ exports.obterPorId = async (alertaId) => {
 
 exports.obterDadosAnalytics = async () => {
     // 1. Busca todos os alertas (substitua 'alertas' pelo nome exato da sua coleção se for diferente, ex: 'historico_eventos')
-    const snapshot = await db.collection('historico_eventos').get(); 
+    const snapshot = await db.collection('historico_eventos').orderBy('timestamp', 'desc').limit(15).get(); 
     const alertas = snapshot.docs.map(doc => doc.data());
 
     const contagemPorDia = {};

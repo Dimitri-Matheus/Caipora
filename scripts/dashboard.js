@@ -131,4 +131,4 @@ window.resolverEvento = resolverEvento;
 atualizarDashboard();
 
 // Configura o "polling" para atualizar a cada 30 segundos
-setInterval(atualizarDashboard, 30000);
+setInterval(atualizarDashboard, 300000);
