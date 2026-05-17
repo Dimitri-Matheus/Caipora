@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=1920, initial-scale=1.0"> -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/colors.css">
     <title>Caipora</title>
     <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header class="Header">
         <div class="logo">
             <img src="media/logo.png" class="logo"/>
-            <H3>CAIPORA</H3>
+            <h3 class="header-title">CAIPORA</h3>
         </div>
         <div class="navHeader">
             <ul>
@@ -89,10 +91,10 @@ desenvolvido para detectar desmatamento, tiros e invasões na floresta em tempo 
             </div>
         </section>
         <section class="conteudo projeto tecnologias" id="tecnologia">
-            <h3>TECNOLOGIAS ULTILIZADAS</h3>
+            <h3>TECNOLOGIAS UTILIZADAS</h3>
             <div>
                 <div class="divBox">
-                    <h2>Hardware & Dispositivos</h2>
+                    <h2 class="box1-title">Hardware & Dispositivos</h2>
                         <div class="divBox2"><div class="divBox3"><h2>CPU</h2></div><div class="textBox">
                             <h3>ESP32 (Microcontrolador)</h3><p>Dual-core 240MHz, 520KB SRAM, compatível com TensorFlow Lite.</p>
                         </div></div>
@@ -104,12 +106,12 @@ desenvolvido para detectar desmatamento, tiros e invasões na floresta em tempo 
                         </div></div>
                 </div>
                 <div class="divBox">
-                    <h2>Software & Inteligência</h2>
+                    <h2 class="box2-title">Software & Inteligência</h2>
                         <div class="divBox2 "><div class="divBox3 azul"><h2>CPU</h2></div><div class="textBox">
                             <h3>Rede Neural Convolucional</h3><p>94% de precisão na detecção de motosserras, tiros e motores.</p>
                         </div></div>
                         <div class="divBox2 "><div class="divBox3 azul"><h2>MIC</h2></div><div class="textBox">
-                            <h3>EDashboard & Cloud</h3><p>Processamento de espectrogramas e FFT em tempo real (Edge).</p>
+                            <h3>Dashboard & Cloud</h3><p>Processamento de espectrogramas e FFT em tempo real (Edge).</p>
                         </div></div>
                         <div class="divBox2 "><div class="divBox3 azul"><h2>RF</h2></div><div class="textBox">
                             <h3>LoRa Communication</h3><p>Interface em React para monitorização e alertas instantâneos.</p>
@@ -121,7 +123,7 @@ desenvolvido para detectar desmatamento, tiros e invasões na floresta em tempo 
     <div id="dashboardSection">
         <section class="conteudo dashboard map" id="mapa">
             <h3>MAPA DE MONITORAMENTO</h3>
-            <p>Monitoramento em tempo real do sistema CAIPORA</p>
+            <p>Monitoramento em tempo real do sistema</p>
 <div class="mapmonitor">
     <div id="map"></div>
     <div class="divBox">
@@ -223,13 +225,47 @@ desenvolvido para detectar desmatamento, tiros e invasões na floresta em tempo 
         </section>
     </div>
     <footer>
-        <div class="logo">
-            <img alt="">
-            <h3>CAIPORA</h3>
+        <div class="footer-content">
+            <div class="footer-left">
+                <img src="media/logo.png" alt="Caipora Logo" class="footer-logo">
+                <div class="footer-text">
+                    <h2>CAIPORA</h2>
+                    <p>Sistema inteligente de monitorização ambiental para proteção da Amazônia através de Edge Computing e IoT. Tecnologia dedicada à preservação em tempo real.</p>
+                </div>
+            </div>
+    
+            <div class="footer-middle">
+                <h3>RECURSOS</h3>
+                <ul>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#mapa">Mapa de Calor</a></li>
+                    <li><a href="#sobre">Sobre o Sistema</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-right">
+                <h3>CONECTE-SE</h3>
+                <div class="social-icons">
+                    <a href="https://github.com/Dimitri-Matheus" target="_blank" title="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://github.com/RikiCode" target="_blank" title="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://github.com/calebefreitass" target="_blank" title="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> contato@caipora.org.br</p>
+                    <p><i class="fas fa-map-pin"></i> Manaus, AM - Brasil</p>
+                </div>
+            </div>
         </div>
-        <div class="textBox">
-            <h2>Compromisso Digital</h2>
-            <p>O CAIPORA respeita a proteção de dados dos usuários. As informações coletadas são utilizadas exclusivamente para monitoramento ambiental, segurança e preservação da Amazônia, com transparência, ética e responsabilidade digital.</p>
+    
+        <div class="footer-bottom">
+            <p>© 2026 CAIPORA. TODOS OS DIREITOS RESERVADOS. TECNOLOGIA EDGE COMPUTING E IOT.</p>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

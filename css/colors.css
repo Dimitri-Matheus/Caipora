@@ -1,0 +1,13 @@
+:root{
+    --linhas:rgba(0, 0, 0, 0.2);
+    --texto1:#595950;
+    --texto2:#0E4617;
+    --texto3:#0f0f0f;
+    --texto4:#3A359D;
+    --background:white;
+    --background2:#EFFFF0;
+    --background3:#E1DFFF;
+    --background4:#71DD8C;
+    --background5:beige;
+    --shadow:0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
